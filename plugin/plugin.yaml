@@ -1,0 +1,47 @@
+name: hermes-workshare
+description: Delegate tasks from external agents (e.g., OpenCode) to Hermes as a worker harness.
+version: 0.1.0
+author: Hermes Agent
+license: MIT
+platforms: [linux, macos, windows]
+requires_hermes: ">=0.22.7"
+python_dependencies:
+  - "aiohttp>=3.9.0"
+  - "pydantic>=2.0.0"
+provides_tools:
+  - hermes_workshare_submit_task
+  - hermes_workshare_check_status
+  - hermes_workshare_get_results
+  - hermes_workshare_steer_task
+  - hermes_workshare_cancel_task
+  - hermes_workshare_configure
+provides_hooks: []
+provides_middleware: []
+metadata:
+  hermes:
+    tags: [agent-communication, harness, delegation, mcp, workshare]
+    related_skills: [hermes-agent]
+capabilities:
+  hooks: []
+  middleware: []
+  requires_auth: []
+  oauth: []
+  config_schema:
+    api_server_url:
+      type: string
+      default: "http://127.0.0.1:8642/v1"
+      description: "Hermes API server base URL (Runs endpoint)"
+    api_server_key:
+      type: string
+      description: "API server bearer token (API_SERVER_KEY from Hermes .env)"
+    default_worktree:
+      type: string
+      description: "Default worktree path for delegated tasks (optional)"
+      default: ""
+    default_timeout_seconds:
+      type: integer
+      default: 300
+      description: "Default task timeout in seconds"
+  environment: []
+  data_directories:
+    - hermes-workshare

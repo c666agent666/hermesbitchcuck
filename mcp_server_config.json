@@ -1,0 +1,16 @@
+{
+  "name": "hermes-workshare",
+  "version": "0.1.0",
+  "description": "MCP adapter for delegating tasks from OpenCode to Hermes Workshare",
+  "type": "remote",
+  "url": "http://127.0.0.1:8766/mcp",
+  "headers": {
+    "Authorization": "Bearer ${HERMES_WORKSHARE_API_KEY}"
+  },
+  "codemode": false,
+  "timeout": {
+    "connect": 5000,
+    "request": 300000
+  },
+  "pool": false
+}
